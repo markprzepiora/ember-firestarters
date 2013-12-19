@@ -14,8 +14,11 @@
     }, {
       name: "demos/_selectem"
     }, {
-      name: "components/selectem-input",
-      sourceName: "selectem-input"
+      name: "demos/_calembar"
+    }, {
+      name: "components/selectem-input"
+    }, {
+      name: "components/calembar-input"
     }
   ];
 

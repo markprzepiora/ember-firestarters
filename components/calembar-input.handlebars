@@ -1,0 +1,36 @@
+<table>
+  <thead>
+    <tr>
+      <th colspan="7">
+        {{currentMonthDisplay}}
+      </th>
+    </tr>
+    <tr>
+      {{#each date in firstRow}}
+        <th>{{date.weekday}}</th>
+      {{/each}}
+    </td>
+  </thead>
+  <tbody>
+    {{#each rows}}
+      <tr>
+        {{#group}}
+          {{#each this}}
+            <td>
+              {{#if selectable}}
+                <a href="#"
+                  {{bind-attr class="className"}}
+                  {{action "selectDate" date}}>{{day}}</a>
+              {{/if}}
+            </td>
+          {{/each}}
+        {{/group}}
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<div>
+  <button {{action "prevMonth"}} href="#">prev</button> |
+  <button {{action "nextMonth"}} href="#">next</button>
+</div>
