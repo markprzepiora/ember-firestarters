@@ -5,7 +5,8 @@
   App.deferReadiness();
 
   App.ApplicationController = Ember.Controller.extend({
-    tags: ["kittens", "puppies", "octopuses"]
+    tags: ["kittens", "puppies", "octopuses"],
+    time: moment().add('days', 1).add('hours', -2)
   });
 
   var templates = [
@@ -15,6 +16,8 @@
       name: "demos/selectem"
     }, {
       name: "demos/calembar"
+    }, {
+      name: "demos/time-tag"
     }, {
       name: "components/selectem-input"
     }, {

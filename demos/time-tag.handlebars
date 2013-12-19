@@ -1,0 +1,42 @@
+<h1>Time-Tag</h1>
+<p>
+  No funny name for this one. It is just an HTML5 &lt;time&gt; tag that you can
+  format.
+</p>
+
+<h2>Demo</h2>
+<p>
+  Please remember that your next meeting is {{time-tag time=time format="calendar"}}.
+  In case you forgot, that is a {{time-tag time=time format="dddd"}}.
+</p>
+
+<h2>
+  Usage:
+</h2>
+
+<p>
+  Below, the "format" option can either be any valid
+  <a href="http://momentjs.com/docs/#/parsing/string-format/">Moment.js format</a>,
+  or "calendar".
+</p>
+
+<pre><code>Please remember that your next meeting is
+&#123;&#123;time-tag time=meeting format="calendar"&#125;&#125;.
+In case you forgot, that is a
+&#123;&#123;time-tag time=meeting format="dddd"&#125;&#125;.</code></pre>
+
+<h2>
+  Dependencies:
+</h2>
+
+<p>
+  Ember.js and <a href="http://momentjs.com/">Moment.js</a>.
+</p>
+
+<h2>
+  Source code:
+</h2>
+
+<p>
+  <a href="https://github.com/markprzepiora/ember-firestarters/blob/gh-pages/components/time-tag.js">JavaScript</a> only.
+</p>
