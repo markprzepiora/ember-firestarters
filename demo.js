@@ -12,6 +12,8 @@
     {
       name: "application"
     }, {
+      name: "demos/_selectem"
+    }, {
       name: "components/selectem-input",
       sourceName: "selectem-input"
     }
