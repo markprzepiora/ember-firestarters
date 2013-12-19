@@ -1,3 +1,15 @@
 code {
   white-space: pre-wrap;
 }
+
+.you-have-selected span.tag:after {
+  content: ',';
+}
+
+.you-have-selected span.tag:nth-last-child(6):after {
+  content: ' and';
+}
+
+.you-have-selected span.tag:nth-last-child(3):after {
+  content: '.';
+}

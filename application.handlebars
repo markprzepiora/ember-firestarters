@@ -14,6 +14,20 @@
 </p>
 
 <h2>
+  Demo:
+</h2>
+
+{{selectem-input values=tags}}
+<p class="you-have-selected">
+  You have selected
+  {{#each tag in tags}}
+    <span class="tag">{{tag}}</span>
+  {{else}}
+    nothing.
+  {{/each}}
+</p>
+
+<h2>
   Usage:
 </h2>
 
@@ -25,18 +39,6 @@
   &#123;&#123;/each}}
 &lt;/ul&gt;
 </code></pre>
-
-<h2>
-  Demo:
-</h2>
-
-{{selectem-input values=tags}}
-<p>Selected tags:</p>
-<ul>
-  {{#each tag in tags}}
-    <li>{{tag}}</li>
-  {{/each}}
-</ul>
 
 <h2>
   Source code:
