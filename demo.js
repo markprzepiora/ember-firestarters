@@ -5,7 +5,7 @@
   App.deferReadiness();
 
   App.ApplicationController = Ember.Controller.extend({
-    tags: ["kittens", "puppies"]
+    tags: ["kittens", "puppies", "octopuses"]
   });
 
   var templates = [
