@@ -17,13 +17,13 @@
   Demo:
 </h2>
 
-{{calembar-input date=myDate}}
+{{calembar-input date=meeting}}
 <p>
-  You selected
-  {{#if myDate}}
-    {{myDate}}.
+  Our next meeting is
+  {{#if meeting}}
+    on {{meeting}}.
   {{else}}
-    (no date).
+    never.
   {{/if}}
 </p>
 
@@ -31,14 +31,14 @@
   Usage:
 </h2>
 
-<pre><code>&#123;&#123;calembar-input date=myDate&#125;&#125;
+<pre><code>&#123;&#123;calembar-input date=meeting&#125;&#125;
 
 &lt;p&gt;
-  You selected
-  &#123;&#123;#if myDate&#125;&#125;
-    &#123;&#123;myDate&#125;&#125;.
+  Our next meeting is
+  &#123;&#123;#if meeting&#125;&#125;
+    on &#123;&#123;meeting&#125;&#125;.
   &#123;&#123;else&#125;&#125;
-    (no date).
+    never.
   &#123;&#123;/if&#125;&#125;
 &lt;/p&gt;</code></pre>
 
