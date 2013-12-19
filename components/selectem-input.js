@@ -59,5 +59,9 @@ App.SelectemInputComponent = Ember.Component.extend({
     if (keyCode == 8 && inputLength == 0) {
       this.get('values').popObject();
     }
+  },
+
+  click: function() {
+    this.$().find('input').focus();
   }
 });

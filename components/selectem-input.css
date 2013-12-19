@@ -7,12 +7,15 @@
 }
 
 .selectem input {
+  border:   0;
+  outline:  0;
 }
 
 .selectem .tag {
-  display: inline-block;
-  background: #eee;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 5px;
+  display:        inline-block;
+  background:     rgba(0, 0, 255, 0.05);
+  box-shadow:     1px 1px 3px #888888;
+  border-radius:  5px;
+  padding:        5px;
+  margin:         0 3px 0 0;
 }
