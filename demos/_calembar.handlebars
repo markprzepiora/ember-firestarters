@@ -17,7 +17,15 @@
   Demo:
 </h2>
 
-{{calembar-input}}
+{{calembar-input date=myDate}}
+<p>
+  You selected
+  {{#if myDate}}
+    {{myDate}}.
+  {{else}}
+    (no date).
+  {{/if}}
+</p>
 
 <h2>
   Usage:

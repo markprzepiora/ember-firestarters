@@ -1,20 +1,15 @@
 App.CalembarInputComponent = Ember.Component.extend({
+  // The current month displayed in the component. Defaults to the present
+  // month.
   currentMonth: moment({ day: 1 }),
-  maxDate:      moment(),
 
-  startDate:    null,
-  endDate:      null,
-  lastSelected: 0,
+  // The selected date.
+  date: null,
 
+  // A textual representation of the current month, e.g. "November 2013".
   currentMonthDisplay: function() {
     var currentMonth = this.get('currentMonth');
     return moment(currentMonth).format('MMMM YYYY');
-  }.property('currentMonth'),
-
-  nextMonth: function() {
-    var currentMonth = this.get('currentMonth');
-
-    return moment(currentMonth).add('months', 1);
   }.property('currentMonth'),
 
   weekdayOfFirstDay: function() {
@@ -22,26 +17,18 @@ App.CalembarInputComponent = Ember.Component.extend({
   }.property('currentMonth'),
 
   isSelectable: function(date) {
-    var currentMonth = this.get('currentMonth');
-    var maxDate      = this.get('maxDate');
-
-    return !moment(date).isBefore(currentMonth) &&
-           moment(date).isBefore(maxDate);
+    return true;
   },
 
   dateObject: function(date) {
-    var startDate = this.get('startDate');
-    var endDate   = this.get('endDate');
-    var className = "";
+    var selectedDate = this.get('date');
+    var className;
 
-    if (moment(date).isSame(startDate)) {
-      className += "selected ";
+    if (moment(date).isSame(selectedDate)) {
+      className = "selected";
     }
-    else if (moment(date).isSame(endDate)) {
-      className += "selected ";
-    }
-    else if (moment(date).isBefore(endDate) && moment(startDate).isBefore(date)) {
-      className += "between ";
+    else {
+      className = "";
     }
 
     return Ember.Object.create({
@@ -63,7 +50,7 @@ App.CalembarInputComponent = Ember.Component.extend({
       var date = moment(currentMonth).add('days', weekday - weekdayOfFirstDay);
       return _this.dateObject(date);
     });
-  }.property('currentMonth', 'startDate', 'endDate'),
+  }.property('currentMonth', 'date'),
 
   nextRow: function(previousRow) {
     var previousLastDate = previousRow.objectAt(6);
@@ -76,14 +63,18 @@ App.CalembarInputComponent = Ember.Component.extend({
   },
 
   rows: function() {
-    var firstRow  = this.get('firstRow');
-    var secondRow = this.nextRow(firstRow);
-    var thirdRow  = this.nextRow(secondRow);
-    var fourthRow = this.nextRow(thirdRow);
-    var fifthRow  = this.nextRow(fourthRow);
-    var sixthRow  = this.nextRow(fifthRow);
+    var firstRow           = this.get('firstRow');
+    var secondRow          = this.nextRow(firstRow);
+    var thirdRow           = this.nextRow(secondRow);
+    var fourthRow          = this.nextRow(thirdRow);
+    var fifthRow           = this.nextRow(fourthRow);
+    var sixthRow           = this.nextRow(fifthRow);
+    var firstDayOfSixthRow = sixthRow[0];
 
-    return [firstRow, secondRow, thirdRow, fourthRow, fifthRow, sixthRow];
+    if (moment(firstDayOfSixthRow.date).date() <= 6)
+      return [firstRow, secondRow, thirdRow, fourthRow, fifthRow];
+    else
+      return [firstRow, secondRow, thirdRow, fourthRow, fifthRow, sixthRow];
   }.property('firstRow'),
 
   // ACTIONS
@@ -100,35 +91,11 @@ App.CalembarInputComponent = Ember.Component.extend({
     },
 
     nextMonth: function() {
-      var maxDate   = this.get('maxDate');
-      var nextMonth = this.get('nextMonth');
-
-      if (nextMonth.isBefore(maxDate))
-        this.send('addMonths', 1);
+      this.send('addMonths', 1);
     },
 
     selectDate: function(date) {
-      var lastSelected = this.get('lastSelected');
-
-      if (lastSelected == 0)
-        this.set('startDate', date);
-      else
-        this.set('endDate', date);
-
-      this.set('lastSelected', (lastSelected + 1) % 2);
-      this.swapDates();
-    }
-  },
-
-  swapDates: function() {
-    var startDate    = this.get('startDate');
-    var endDate      = this.get('endDate');
-    var lastSelected = this.get('lastSelected');
-
-    if (startDate && endDate && moment(endDate).isBefore(startDate)) {
-      this.set('startDate', endDate);
-      this.set('endDate', startDate);
-      this.set('lastSelected', (lastSelected + 1) % 2);
+      this.set('date', date);
     }
   }
 });

@@ -1,8 +1,14 @@
-<table>
+<table class="calembar">
   <thead>
     <tr>
-      <th colspan="7">
+      <th>
+        <button {{action "prevMonth"}}>«</button>
+      </th>
+      <th colspan="5">
         {{currentMonthDisplay}}
+      </th>
+      <th>
+        <button {{action "nextMonth"}}>»</button>
       </th>
     </tr>
     <tr>
@@ -16,12 +22,8 @@
       <tr>
         {{#group}}
           {{#each this}}
-            <td>
-              {{#if selectable}}
-                <a href="#"
-                  {{bind-attr class="className"}}
-                  {{action "selectDate" date}}>{{day}}</a>
-              {{/if}}
+            <td {{bind-attr class="className"}}>
+              <a href="#" {{action "selectDate" date}}>{{day}}</a>
             </td>
           {{/each}}
         {{/group}}
@@ -29,8 +31,3 @@
     {{/each}}
   </tbody>
 </table>
-
-<div>
-  <button {{action "prevMonth"}} href="#">prev</button> |
-  <button {{action "nextMonth"}} href="#">next</button>
-</div>
