@@ -17,13 +17,17 @@
   Demo:
 </h2>
 
+<p>
+  Enter some animal names below, separated by commas or the Return key. Press
+  Backspace/Delete at the prompt to delete a name.
+</p>
 {{selectem-input values=tags}}
 <p class="you-have-selected">
-  You have selected
+  The cutest animals in the world are
   {{#each tag in tags}}
     <span class="tag">{{tag}}</span>
   {{else}}
-    nothing.
+    still being decided.
   {{/each}}
 </p>
 
@@ -32,13 +36,13 @@
 </h2>
 
 <pre><code>&#123;&#123;selectem-input values=tags}}
+
 &lt;p&gt;Selected tags:&lt;/p&gt;
 &lt;ul&gt;
   &#123;&#123;#each tag in tags}}
     &lt;li&gt;&#123;&#123;tag}}&lt;/li&gt;
   &#123;&#123;/each}}
-&lt;/ul&gt;
-</code></pre>
+&lt;/ul&gt;</code></pre>
 
 <h2>
   Dependencies:
