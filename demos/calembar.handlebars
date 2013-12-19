@@ -31,21 +31,27 @@
   Usage:
 </h2>
 
-<pre><code>&#123;&#123;selectem-input values=tags}}
-&lt;p&gt;Selected tags:&lt;/p&gt;
-&lt;ul&gt;
-  &#123;&#123;#each tag in tags}}
-    &lt;li&gt;&#123;&#123;tag}}&lt;/li&gt;
-  &#123;&#123;/each}}
-&lt;/ul&gt;
-</code></pre>
+<pre><code>&#123;&#123;calembar-input date=myDate&#125;&#125;
+
+&lt;p&gt;
+  You selected
+  &#123;&#123;#if myDate&#125;&#125;
+    &#123;&#123;myDate&#125;&#125;.
+  &#123;&#123;else&#125;&#125;
+    (no date).
+  &#123;&#123;/if&#125;&#125;
+&lt;/p&gt;</code></pre>
 
 <h2>
   Dependencies:
 </h2>
 
 <p>
-  Only Ember.js.
+  Ember.js,
+  <a href="http://momentjs.com/">Moment.js</a>,
+  and the <a href="https://github.com/emberjs/group-helper">Group Helper</a>
+  for better performance (although you can remove the
+  &#123;&#123;#group&#125;&#125; tags if you want to remove this dependency).
 </p>
 
 <h2>
@@ -53,6 +59,6 @@
 </h2>
 
 <p>
-  <a href="https://github.com/markprzepiora/ember-firestarters/blob/gh-pages/components/selectem-input.js">JavaScript</a> and
-  <a href="https://github.com/markprzepiora/ember-firestarters/blob/gh-pages/components/selectem-input.handlebars">Handlebars</a>.
+  <a href="https://github.com/markprzepiora/ember-firestarters/blob/gh-pages/components/calembar-input.js">JavaScript</a> and
+  <a href="https://github.com/markprzepiora/ember-firestarters/blob/gh-pages/components/calembar-input.handlebars">Handlebars</a>.
 </p>

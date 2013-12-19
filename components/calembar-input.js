@@ -18,7 +18,6 @@ App.CalembarInputComponent = Ember.Component.extend({
     return moment(this.get('currentMonth')).weekday();
   }.property('currentMonth'),
 
-  //  
   dateObject: function(date) {
     var selectedDate = this.get('date');
     var className    = moment(date).isSame(selectedDate) ? "selected" : "";
