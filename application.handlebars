@@ -1,0 +1,56 @@
+<h1>
+  Ember Firestarters
+</h1>
+
+<p>
+  This is my collection of simple, reusable Ember components.
+</p>
+
+<h2>
+  Selectem
+</h2>
+
+<p>
+  A simple, customizable tagging input, similar in function to
+  <a href="http://aehlke.github.io/tag-it/">Tag-it!</a> and
+  <a href="http://brianreavis.github.io/selectize.js/">Selectize.js</a>,
+  in about 60 lines of JavaScript.
+</p>
+
+<p>
+  Simply provide your own CSS!
+</p>
+
+<h3>
+  Usage:
+</h3>
+
+<code>&#123;&#123;selectem-input values=tags}}
+&lt;p&gt;Selected tags:&lt;/p&gt;
+&lt;ul&gt;
+  &#123;&#123;#each tag in tags}}
+    &lt;li&gt;&#123;&#123;tag}}&lt;/li&gt;
+  &#123;&#123;/each}}
+&lt;/ul&gt;
+</code>
+
+<h3>
+  Demo:
+</h3>
+
+{{selectem-input values=tags}}
+<p>Selected tags:</p>
+<ul>
+  {{#each tag in tags}}
+    <li>{{tag}}</li>
+  {{/each}}
+</ul>
+
+<h3>
+  Source code
+</h3>
+
+<p>
+  <a href="components/selectem-input.js">JavaScript</a> and
+  <a href="components/selectem-input.handlebars">Handlebars</a>.
+</p>

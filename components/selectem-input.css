@@ -1,0 +1,18 @@
+.selectem {
+  background:     white;
+  width:          50%;
+  border:         1px solid #ddd;
+  border-radius:  5px;
+  padding:        10px;
+}
+
+.selectem input {
+}
+
+.selectem .tag {
+  display: inline-block;
+  background: #eee;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
