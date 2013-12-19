@@ -12,31 +12,21 @@ App.CalembarInputComponent = Ember.Component.extend({
     return moment(currentMonth).format('MMMM YYYY');
   }.property('currentMonth'),
 
+  // The weekday (Sunday = 0, Saturday = 6) on which the first day of the
+  // current month falls.
   weekdayOfFirstDay: function() {
     return moment(this.get('currentMonth')).weekday();
   }.property('currentMonth'),
 
-  isSelectable: function(date) {
-    return true;
-  },
-
+  //  
   dateObject: function(date) {
     var selectedDate = this.get('date');
-    var className;
-
-    if (moment(date).isSame(selectedDate)) {
-      className = "selected";
-    }
-    else {
-      className = "";
-    }
+    var className    = moment(date).isSame(selectedDate) ? "selected" : "";
 
     return Ember.Object.create({
       date:        date.toDate(),
       day:         date.format('DD'),
       weekday:     date.format('dd'),
-      value:       date.valueOf(),
-      selectable:  this.isSelectable(date),
       className:   className
     });
   },
@@ -84,14 +74,6 @@ App.CalembarInputComponent = Ember.Component.extend({
       var newMonth     = moment(currentMonth).add('months', n);
 
       this.set('currentMonth', newMonth);
-    },
-
-    prevMonth: function() {
-      this.send('addMonths', -1);
-    },
-
-    nextMonth: function() {
-      this.send('addMonths', 1);
     },
 
     selectDate: function(date) {

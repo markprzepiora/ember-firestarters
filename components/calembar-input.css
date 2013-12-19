@@ -1,3 +1,15 @@
-.calembar td.selected {
-  background: #ccc;
+.calembar td {
+  border: 0;
+  padding: 3px;
+}
+.calembar td a {
+  display:        block;
+  width:          100%;
+  border:         1px solid #2e7bcf;
+  border-radius:  5px;
+}
+
+.calembar td.selected a {
+  background: #2e7bcf;
+  color:      white;
 }

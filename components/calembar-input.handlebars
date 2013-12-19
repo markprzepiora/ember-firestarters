@@ -2,13 +2,13 @@
   <thead>
     <tr>
       <th>
-        <button {{action "prevMonth"}}>«</button>
+        <button {{action "addMonths" -1}}>«</button>
       </th>
       <th colspan="5">
         {{currentMonthDisplay}}
       </th>
       <th>
-        <button {{action "nextMonth"}}>»</button>
+        <button {{action "addMonths" 1}}>»</button>
       </th>
     </tr>
     <tr>
