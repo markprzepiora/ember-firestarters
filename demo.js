@@ -12,9 +12,9 @@
     {
       name: "application"
     }, {
-      name: "demos/_selectem"
+      name: "demos/selectem"
     }, {
-      name: "demos/_calembar"
+      name: "demos/calembar"
     }, {
       name: "components/selectem-input"
     }, {
